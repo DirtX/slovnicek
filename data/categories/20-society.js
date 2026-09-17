@@ -1,0 +1,32 @@
+export const societyCategory = {
+    id: "spolecnost",
+    name: "Society, Politics & Law",
+    stageId: "stage-b2",
+    words: [
+        { cz: "Společnost", translation: "Society / Суспільство", usage: "Moderní společnost čelí mnoha globálním výzvám.", level: "B1" },
+        { cz: "Vláda", translation: "Government / Уряд", usage: "Vláda schválila nový státní rozpočet na příští rok.", level: "B1" },
+        { cz: "Prezident", translation: "President / Президент", usage: "Prezident republiky podepsal nový zákon.", level: "B1" },
+        { cz: "Parlament", translation: "Parliament / Парламент", usage: "Volby do parlamentu proběhnou na podzim.", level: "B1" },
+        { cz: "Zákon", translation: "Law / Закон", usage: "Každý občan musí dodržovat platné zákony státu.", level: "B1" },
+        { cz: "Volby", translation: "Elections / Вибори", usage: "Občané si ve volbách zvolili své nové zástupce.", level: "B1" },
+        { cz: "Politika", translation: "Politics / Політика", usage: "Zahraniční politika státu se zaměřuje na spolupráci.", level: "B1" },
+        { cz: "Právo", translation: "Law, Right / Право", usage: "Každý člověk má právo na svobodu projevu.", level: "B1" },
+        { cz: "Soud", translation: "Court / Суд", usage: "Případem se bude zabývat městský soud.", level: "B1" },
+        { cz: "Soudce", translation: "Judge / Суддя", usage: "Soudce vynnesl spravedlivý rozsudek.", level: "B1" },
+        { cz: "Policie", translation: "Police / Поліція", usage: "Na bezpečnost dohlíží místní policie.", level: "B1" },
+        { cz: "Zločin", translation: "Crime / Злочин", usage: "Policie vyšetřuje závažný finanční zločin.", level: "B1" },
+        { cz: "Občan", translation: "Citizen / Громадянин", usage: "Každý občan má právo volit ve volbách.", level: "B1" },
+        { cz: "Svoboda", translation: "Freedom / Свобода", usage: "Svoboda slova je základem demokracie.", level: "B1" },
+        { cz: "Demokracie", translation: "Democracy / Демократія", usage: "Demokracie zaručuje občanům základní práva.", level: "B1" },
+        { cz: "Ústava", translation: "Constitution / Конституція", usage: "Ústava je nejvyšší zákon státu.", level: "B2" },
+        { cz: "Ministerstvo", translation: "Ministry / Міністерство", usage: "Ministerstvo vnitra vydalo nové vyhlášky.", level: "B2" },
+        { cz: "Diplomacie", translation: "Diplomacy / Дипломатія", usage: "Mezinárodní vztahy staví na mírové diplomacii.", level: "B2" },
+        { cz: "Legislativa", translation: "Legislation / Законодавство", usage: "Nová legislativa mění podmínky pro podnikání.", level: "B2" },
+        { cz: "Sankce", translation: "Sanctions / Санкції", usage: "Státy uvalily hospodářské sankce.", level: "B2" },
+        { cz: "Korupce", translation: "Corruption / Корупція", usage: "Boj proti korupci je prioritou vlády.", level: "B2" },
+        { cz: "Referendum", translation: "Referendum / Референдум", usage: "O otázce rozhodnou občané v referendu.", level: "B2" },
+        { cz: "Demagogie", translation: "Demagogy / Демагогія", usage: "Politická debata byla plná levné demagogie.", level: "C1" },
+        { cz: "Jurisdikce", translation: "Jurisdiction / Юрисдикція", usage: "Případ spadá pod místní jurisdikci soudu.", level: "C1" },
+        { cz: "Buržoazie", translation: "Bourgeoisie / Буржуазія", usage: "Historický vývoj a vliv buržoazie v devatenáctém století.", level: "C1" }
+    ]
+};

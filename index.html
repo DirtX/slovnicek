@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slovníček — Czech vocabulary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/games.css">
+</head>
+
+<body>
+  <div class="ambience" aria-hidden="true"></div>
+
+  <div class="app-shell">
+
+    <header class="app-header">
+      <div class="wordmark">
+        <h1>Slovníček</h1>
+        <span class="wordmark-note">Czech &middot; Ukrainian</span>
+      </div>
+      <nav id="main-nav" class="main-nav">
+        <button type="button" class="nav-tab-btn active" data-tab-target="tab-dictionary">Dictionary</button>
+        <button type="button" class="nav-tab-btn" data-tab-target="tab-practice">Practice</button>
+        <button type="button" class="nav-tab-btn" data-tab-target="tab-roadmap">Roadmap</button>
+        <button type="button" class="nav-tab-btn" data-tab-target="tab-import">My words</button>
+      </nav>
+    </header>
+
+    <section class="ledger glass">
+      <div class="ledger-figure">
+        <span class="ledger-learned" id="ledger-learned">0</span>
+        <span class="ledger-total" id="ledger-total">/ 0</span>
+      </div>
+      <div class="ledger-body">
+        <p class="ledger-caption">Learned at <strong id="ledger-level">all levels</strong> — <span
+            id="ledger-pct">0%</span></p>
+        <div class="track">
+          <div class="track-fill" id="ledger-fill" style="width:0%"></div>
+        </div>
+      </div>
+      <div class="ledger-action">
+        <button type="button" class="btn btn-outline" id="btn-level-test">Take the test</button>
+        <span class="ledger-hint">20 questions, 80% to clear the level</span>
+      </div>
+    </section>
+
+    <main id="tab-dictionary" class="view-section active">
+      <div class="level-rail" id="level-rail"></div>
+
+      <div class="filter-bar">
+        <input type="text" id="search-input" class="field field-search" placeholder="Search Czech, English or Ukrainian…">
+        <select id="category-select" class="field">
+          <option value="ALL">All topics</option>
+        </select>
+        <select id="sort-select" class="field">
+          <option value="default">By topic</option>
+          <option value="az">A to Z (Czech)</option>
+          <option value="todo">Unlearned first</option>
+        </select>
+      </div>
+
+      <p class="result-line" id="result-line"></p>
+      <div class="word-list glass" id="word-list"></div>
+      <button type="button" id="btn-more-words" class="btn btn-quiet btn-wide hidden">Show more</button>
+    </main>
+
+    <section id="tab-practice" class="view-section">
+      <div class="panel practice-panel glass" id="practice-root"></div>
+    </section>
+
+    <section id="tab-roadmap" class="view-section">
+      <div class="panel glass">
+        <div class="panel-title">
+          <h2>From A1 to C2</h2>
+        </div>
+        <p class="panel-desc">Six CEFR levels. A level clears once you have learned 80% of its words — by hand in the
+          dictionary, or by passing the level test.</p>
+        <div id="roadmap-mount"></div>
+      </div>
+    </section>
+
+    <section id="tab-import" class="view-section">
+      <div class="panel glass">
+        <div class="panel-title">
+          <h2>Add a word</h2>
+        </div>
+        <p class="panel-desc">It joins the dictionary and every drill straight away.</p>
+        <form id="form-add" class="form-row">
+          <input type="text" id="add-cz" class="field" placeholder="Czech, e.g. mluvit" required>
+          <input type="text" id="add-ua" class="field" placeholder="Ukrainian, e.g. говорити" required>
+          <select id="add-level" class="field">
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
+          </select>
+          <button type="submit" class="btn btn-solid">Add</button>
+        </form>
+      </div>
+
+      <div class="panel glass">
+        <div class="panel-title">
+          <h2>Import a list</h2>
+        </div>
+        <p class="panel-desc">An array of objects with <code>cz</code> and <code>ua</code>, optionally
+          <code>level</code> and <code>usage</code>.
+        </p>
+        <textarea id="import-json" class="field"
+          placeholder='[{"cz": "pes", "ua": "собака", "level": "A1"}]'></textarea>
+        <button type="button" id="btn-import" class="btn btn-solid btn-wide">Import</button>
+      </div>
+
+      <div class="panel glass">
+        <div class="db-head">
+          <h2>Word database</h2>
+          <input type="text" id="db-search" class="field" placeholder="Filter…" style="max-width:260px">
+        </div>
+        <div class="table-wrap">
+          <table class="db">
+            <thead>
+              <tr>
+                <th style="width:60px">#</th>
+                <th>Czech</th>
+                <th>Ukrainian</th>
+                <th style="width:92px">Level</th>
+                <th style="width:88px"></th>
+              </tr>
+            </thead>
+            <tbody id="db-body"></tbody>
+          </table>
+        </div>
+        <button type="button" id="btn-more-db" class="btn btn-quiet btn-wide hidden">Show more</button>
+      </div>
+    </section>
+
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
