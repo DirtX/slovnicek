@@ -1,6 +1,7 @@
 # Slovníček
 
-Czech–Ukrainian vocabulary: 2,090 words, five drills, an A1–C2 roadmap.
+Czech–Ukrainian vocabulary: 8,324 words across 31 topics, five drills, an
+A1–C2 roadmap.
 
 ## Running it
 
@@ -11,8 +12,8 @@ The site uses ES modules, so opening `index.html` by double-click (the
 
 then open http://localhost:8000
 
-If you would rather not run a server, `slovnicek.html` is a single-file
-build that works from a double-click.
+If you would rather not run a server, build the single-file version
+(`python3 bundle.py`) and double-click `dist/slovnicek.html` instead.
 
 ## Layout
 
@@ -24,7 +25,9 @@ build that works from a double-click.
     js/
       app.js            dictionary, filters, level test, custom words
       state.js          data, progress, localStorage
-      roadmap.js        the A1–C2 stage cards
+      roadmap.js         the A1–C2 stage cards
+      transcriptor.js    dev tool: cleans a transcript and makes it click-to-look-up
+      translator.js      dev tool: Google Translate lookup for a Czech word
       games/
         drill.js        shared base for every drill, plus speech
         mode-choice.js  multiple choice
@@ -74,6 +77,21 @@ Then add its filename to `FILES` in `data/registry.js`. Two things matter:
 sentence containing the headword verbatim makes the word eligible for the
 fill-the-gap drill.
 
+The "Import a list" tab on the site takes the same shape, but pre-split
+into `cz` and `ua` rather than one combined `translation` string.
+
+## Dev tools
+
+Two helper modules aren't wired into the app itself — they're for
+building vocabulary data, not for the running site:
+
+- `js/translator.js` — `lookupWord(czWord)` queries Google Translate for
+  the English and Ukrainian sense of a Czech word, plus variants and
+  example sentences, for drafting new category entries.
+- `js/transcriptor.js` — cleans a raw subtitle/transcript dump (episode
+  markers, timestamps, bracketed notes) and renders it as clickable text,
+  so a word met while watching or reading can be looked up in context.
+
 ## Speech
 
 Pronunciation uses the browser's speech synthesis. `czechVoice()` in
@@ -86,4 +104,5 @@ Chrome and Edge also ship good network voices when online.
 
     python3 bundle.py
 
-It reads this same folder, so the two versions cannot drift apart.
+It reads this same folder and writes `dist/slovnicek.html`, so the two
+versions cannot drift apart.
